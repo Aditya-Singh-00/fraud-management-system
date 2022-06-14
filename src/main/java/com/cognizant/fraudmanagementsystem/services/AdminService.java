@@ -31,6 +31,7 @@ public class AdminService {
     public boolean addAdmin(Admin admin) {
         try {
             adminRepository.addAdmin(admin);
+            admins = adminRepository.getAllAdmins();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
