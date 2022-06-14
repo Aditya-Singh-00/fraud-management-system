@@ -3,13 +3,27 @@
 <html>
 <head>
     <title>Fraud Analyzer Dashboard</title>
+    <link href="../css/dashboard.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Fraud Analyzer Dashboard</h1>
-    <a href="/logout">Logout</a>
-    <a href="/card">Card</a>
-    <a href="/transaction">Transaction</a>
-    <a href="/claim">Claim</a>
+    <nav>
+        <li>Fraud Management System</li>
+        <li><a id="logout-btn" href="/logout">Logout</a></li>        
+    </nav>
+    <div class="container">
+        <div class="card-wrapper">
+            <div id="card" class="card"></div>
+            <a href="/card">Card</a>
+        </div>
+        <div class="card-wrapper">
+            <div id="transaction" class="card"></div>
+            <a href="/transaction">Transaction</a>
+        </div>
+        <div class="card-wrapper">
+            <div id="claim" class="card"></div>
+            <a href="/claim">Claim</a>
+        </div>
+    </div>
 </body>
 
 </html>

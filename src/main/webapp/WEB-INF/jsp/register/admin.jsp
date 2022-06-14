@@ -4,40 +4,55 @@
 
 <head>
     <title>Register</title>
+    <link href="../css/registration.css" rel="stylesheet" type="text/css">
+    <script src="../js/registrationValidation.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <h1>Register as Fraud Analysis Personnel</h1>
-    <form method="post" modelAttribute="user">
+    <div class="container">
+    <h1>Register as Admin</h1>
+    <form method="post" onsubmit="return validate()" modelAttribute="user">
         <label>User ID</label>
-        <input type="text" name="id" placeholder="Enter Your ID" autofocus required />
+        <input id="userId" type="text" name="id" placeholder="Enter Your ID" autofocus/>
+        <p id="userIdError" class="error"></p>
         <label>First Name</label>
-        <input type="text" name="firstName" placeholder="Enter your first name" required />
+        <input id="firstName" type="text" name="firstName" placeholder="Enter your first name"/>
+        <p id="firstNameError" class="error"></p>
         <label>Last Name</label>
-        <input type="text" name="lastName" placeholder="Enter your last name" required />
+        <input id="lastName" type="text" name="lastName" placeholder="Enter your last name" />
+        <p id="lastNameError" class="error"></p>
         <label>Date of Birth</label>
-        <input type="text" name="dob" placeholder="Enter your date of birth" required />
+        <input id="dob" type="text" name="dob" placeholder="Enter your date of birth"/>
+        <p id="dobError" class="error"></p>
         <label>Gender</label>
-        <select name="gender">
+        <select id="gender" name="gender">
             <option value="">Select your gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
         </select>
+        <p id="genderError" class="error"></p>
         <label>Contact No.</label>
-        <input type="text" name="contactNo" placeholder="Enter your contact no." required />
+        <input id="contactNo" type="text" name="contactNo" placeholder="Enter your contact no."/>
+        <p id="contactNoError" class="error"></p>
         <label>Email</label>
-        <input type="email" name="email" placeholder="Enter your email" required />
+        <input id="email" type="email" name="email" placeholder="Enter your email"/>
+        <p id="emailError" class="error"></p>
         <label>Password</label>
-        <input type="password" name="password" placeholder="Enter password" required />
+        <input id="password" type="password" name="password" placeholder="Enter password" />
+        <p id="passwordError" class="error"></p>
         <label>What is your favourite colour?</label>
-        <input type="text" name="firstAnswer" placeholder="Green" required />
+        <input id="firstAnswer" type="text" name="firstAnswer" placeholder="Green" />
+        <p id="firstAnswerError" class="error"></p>
         <label>Which animal do you like?</label>
-        <input type="text" name="secondAnswer" placeholder="Dog" required />
+        <input id="secondAnswer" type="text" name="secondAnswer" placeholder="Dog"/>
+        <p id="secondAnswerError" class="error"></p>
         <label>Which mobile company phone do you use?</label>
-        <input type="text" name="thirdAnswer" placeholder="Mobile Company" required />
-        <input type="submit" value="Register" />
+        <input id="thirdAnswer" type="text" name="thirdAnswer" placeholder="Mobile Company" />
+        <p id="thirdAnswerError" class="error"></p>
+        <button class="login-btn" type="submit">Register</button>
     </form>
+    </div>
 </body>
 
 </html>
