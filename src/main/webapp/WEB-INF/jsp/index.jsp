@@ -3,10 +3,14 @@
 <html>
     <head>
         <title>Welcome</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+        <link href="../css/index.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1>Welcome to Fraud Management System</h1>
-        <a href="/login/fraud-analysis-personnel">Fraud Analysis Personnel Login</a>
-        <a href="/login/admin">Admin Login</a>
+        <div class="container">
+            <h1>Welcome to Fraud Management System</h1>
+            <a class="btn" href="/login/fraud-analysis-personnel">Fraud Analysis Personnel Login</a>
+            <a class="btn" href="/login/admin">Admin Login</a>
+        </div>
     </body>
 </html>

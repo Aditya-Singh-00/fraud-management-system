@@ -4,6 +4,7 @@
 
 <head>
     <title>Add Card Fraud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="../css/addCard.css" rel="stylesheet" type="text/css">
     <script src="../js/addCardValidation.js" type="text/javascript"></script>
 </head>

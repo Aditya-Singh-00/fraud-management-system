@@ -30,7 +30,7 @@ public class FraudAnalysisPersonnelController {
         FraudAnalysisPersonnel fraudAnalysisPersonnel
     ) {
 		if (fraudAnalysisPersonnelService.addFraudAnalysisPersonnel(fraudAnalysisPersonnel)) {
-            return "redirect:/submitted/fraud-analysis-personnel";
+            return "redirect:/login/fraud-analysis-personnel";
         } else {
             model.put("error", "Something went wrong while adding user. Try again.");
             return "redirect:/register/fraud-analysis-personnel";

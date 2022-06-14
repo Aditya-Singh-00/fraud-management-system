@@ -48,7 +48,7 @@ public class AdminController {
     ) {
 		if (adminService.addAdmin(admin)) {
             model.put("id", admin.getId());
-            return "redirect:/submitted/admin";
+            return "redirect:/login/admin";
         } else {
             model.put("error", "Something went wrong while adding user. Try again.");
             return "redirect:/register/admin";

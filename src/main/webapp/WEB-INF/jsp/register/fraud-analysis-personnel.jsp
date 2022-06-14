@@ -4,6 +4,7 @@
 
 <head>
     <title>Register</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="../css/registration.css" rel="stylesheet" type="text/css">
     <script src="../js/registrationValidation.js" type="text/javascript"></script>
 </head>

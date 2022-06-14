@@ -6,6 +6,7 @@
 <html>
     <head>
         <title>Claim Frauds</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
         <link href="../css/data.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/export.js"></script>
     </head>
