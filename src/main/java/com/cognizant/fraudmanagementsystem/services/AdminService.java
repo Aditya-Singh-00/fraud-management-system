@@ -1,6 +1,5 @@
 package com.cognizant.fraudmanagementsystem.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import com.cognizant.fraudmanagementsystem.model.Admin;
@@ -12,16 +11,18 @@ import org.springframework.stereotype.Service;
 public class AdminService {
     
     private AdminRepository adminRepository;
-    private List<Admin> admins = new ArrayList<>();
 
     @Autowired
     public AdminService(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
-        admins = this.adminRepository.getAllAdmins();
+    }
+
+    public List<Admin> getAllAdmins() {
+        return adminRepository.getAllAdmins();
     }
 
     public Optional<Admin> isValid(String userId, String password) {
-        return admins.stream()
+        return getAllAdmins().stream()
                     .filter(admin-> 
                         admin.getId().equals(userId) && 
                         admin.getPassword().equals(password)
@@ -31,7 +32,6 @@ public class AdminService {
     public boolean addAdmin(Admin admin) {
         try {
             adminRepository.addAdmin(admin);
-            admins = adminRepository.getAllAdmins();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -45,7 +45,7 @@ public class AdminService {
         String secondAnswer,
         String thirdAnswer
     ) {
-        return admins.stream()
+        return getAllAdmins().stream()
             .filter(admin ->
                 admin.getId().equals(id) &&
                 admin.getFirstAnswer().equals(firstAnswer) &&
@@ -56,6 +56,5 @@ public class AdminService {
 
     public void updatePassword(String id, String newPassword) {
         adminRepository.updatePassword(id, newPassword);
-        admins = adminRepository.getAllAdmins();
     }
 }

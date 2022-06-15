@@ -1,6 +1,5 @@
 package com.cognizant.fraudmanagementsystem.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import com.cognizant.fraudmanagementsystem.model.FraudAnalysisPersonnel;
@@ -12,20 +11,18 @@ import org.springframework.stereotype.Service;
 public class FraudAnalysisPersonnelService {
     
     private FraudAnalysisPersonnelRepository fraudAnalysisPersonnelRepository;
-    private List<FraudAnalysisPersonnel> fraudAnalysisPersonnels = new ArrayList<>();
 
     @Autowired
     public FraudAnalysisPersonnelService(FraudAnalysisPersonnelRepository fraudAnalysisPersonnelRepository) {
         this.fraudAnalysisPersonnelRepository = fraudAnalysisPersonnelRepository;
-        fraudAnalysisPersonnels = this.fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
     }
 
     public List<FraudAnalysisPersonnel> getAll() {
-        return fraudAnalysisPersonnels;
+        return fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
     }
 
     public Optional<FraudAnalysisPersonnel> isValid(String userId, String password) {
-        return fraudAnalysisPersonnels.stream()
+        return getAll().stream()
                     .filter(fraudAnalysisPersonnel-> 
                         fraudAnalysisPersonnel.getId().equals(userId) && 
                         fraudAnalysisPersonnel.getPassword().equals(password)
@@ -39,7 +36,6 @@ public class FraudAnalysisPersonnelService {
     public boolean addFraudAnalysisPersonnel(FraudAnalysisPersonnel fraudAnalysisPersonnel) {
         try {
             fraudAnalysisPersonnelRepository.addFraudAnalysisPersonnel(fraudAnalysisPersonnel);
-            fraudAnalysisPersonnels = fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -49,12 +45,10 @@ public class FraudAnalysisPersonnelService {
 
     public void deleteFraudAnalysisPersonnel(String id) {
         fraudAnalysisPersonnelRepository.delete(id);
-        fraudAnalysisPersonnels = fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
     }
 
     public void updateAuthorization(String id, int newAuthorizationValue) {
         fraudAnalysisPersonnelRepository.updateAuthorization(id, newAuthorizationValue);
-        fraudAnalysisPersonnels = fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
     }
 
     public boolean isSecurityAnswerCorrect(
@@ -63,7 +57,7 @@ public class FraudAnalysisPersonnelService {
         String secondAnswer,
         String thirdAnswer
     ) {
-        return fraudAnalysisPersonnels.stream()
+        return getAll().stream()
             .filter(admin ->
                 admin.getId().equals(id) &&
                 admin.getFirstAnswer().equals(firstAnswer) &&
@@ -74,6 +68,5 @@ public class FraudAnalysisPersonnelService {
 
     public void updatePassword(String id, String newPassword) {
         fraudAnalysisPersonnelRepository.updatePassword(id, newPassword);
-        fraudAnalysisPersonnels = fraudAnalysisPersonnelRepository.getAllFraudAnalysisPersonnels();
     }
 }

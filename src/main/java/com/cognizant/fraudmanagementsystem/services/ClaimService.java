@@ -13,31 +13,27 @@ import org.springframework.stereotype.Service;
 public class ClaimService {
     
     private ClaimRepository claimRepository;
-    private List<Claim> claims = new ArrayList<>();
 
     @Autowired
     public ClaimService(ClaimRepository claimRepository) {
         this.claimRepository = claimRepository;
-        claims = this.claimRepository.getAllClaims();
     }
 
     public List<Claim> getAllClaims() {
-        return claims;
+        return claimRepository.getAllClaims();
     }
 
     public Claim getClaimById(int id) {
-        return claims.stream().filter(claim -> claim.getId() == id).findAny().get();
+        return getAllClaims().stream().filter(claim -> claim.getId() == id).findAny().get();
     }
 
     public void delete(Claim claim) {
         claimRepository.delete(claim);
-        claims = claimRepository.getAllClaims();
     }
 
     public boolean addClaim(Claim claim) {
         try {
             claimRepository.addClaim(claim);
-            claims = claimRepository.getAllClaims();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -47,13 +43,13 @@ public class ClaimService {
 
     public List<Claim> searchClaims(String query, String type) {
         if (type.equals("cardType")) {
-            return claims.stream().filter(card -> card.getCardType().equalsIgnoreCase(query)).collect(Collectors.toList());
+            return getAllClaims().stream().filter(card -> card.getCardType().equalsIgnoreCase(query)).collect(Collectors.toList());
         }
         if (type.equals("userId")) {
-            return claims.stream().filter(card -> card.getUserId().equals(query)).collect(Collectors.toList());
+            return getAllClaims().stream().filter(card -> card.getUserId().equals(query)).collect(Collectors.toList());
         }
         if (type.equals("fraudLevel")) {
-            return claims.stream().filter(card -> card.getFraudLevel().equalsIgnoreCase(query)).collect(Collectors.toList());
+            return getAllClaims().stream().filter(card -> card.getFraudLevel().equalsIgnoreCase(query)).collect(Collectors.toList());
         }
         return new ArrayList<>();
     }
