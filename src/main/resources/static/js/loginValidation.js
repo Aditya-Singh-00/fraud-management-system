@@ -5,12 +5,22 @@ function validate() {
     var isValid = true;
    
     if (id == null || id.trim().length == 0) {
-        document.getElementById("userIdError").innerHTML = "User Id is blank";
+        document.getElementById("userId").classList.add("class","errorField");
         isValid = false;
+        window.alert("User ID is blank");
+        return false;
+    } else {
+        document.getElementById("userId").classList.remove("errorField");
+        isValid = true;
     }
     if (password == null || password.trim().length == 0) {
-        document.getElementById("passwordError").innerHTML = "Password is blank";
+        document.getElementById("password").classList.add("class","errorField");
         isValid = false;
+        window.alert("Password is blank");
+        return false;
+    } else {
+        document.getElementById("passwordError").classList.remove("class","errorField");
+        isValid = true;
     }
 
     return isValid; 

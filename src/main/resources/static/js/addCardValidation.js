@@ -12,45 +12,95 @@ function validate() {
     var isValid = true;
 
     if (cardNo == null || cardNo.trim().length == 0) {
-        document.getElementById("cardNoError").innerHTML = "Card no. is blank";
+        document.getElementById("cardNo").classList.add("class","errorField");
         isValid = false;
+        window.alert("Card No. is blank");
+        return false;
+    } else {
+        document.getElementById("cardNo").classList.remove("class","errorField");
+        isValid = true;
     }
 
     if (userId == null || userId.trim().length == 0) {
-        document.getElementById("userIdError").innerHTML = "User id is blank";
+        document.getElementById("userId").classList.add("class","errorField");
         isValid = false;
+        window.alert("User ID is blank");
+        return false;
+    } else {
+        document.getElementById("userId").classList.remove("class","errorField");
+        isValid = true;
     }
     if (cardHolderName == null || cardHolderName.trim().length == 0) {
-        document.getElementById("cardHolderNameError").innerHTML = "Card holder name is blank";
+        document.getElementById("cardHolderName").classList.add("class","errorField");
         isValid = false;
+        window.alert("Card Holder Name is blank");
+        return false;
+    } else {
+        document.getElementById("cardHolderName").classList.remove("class","errorField");
+        isValid = true;
     }
     if (cardType == null || cardType.trim().length == 0) {
-        document.getElementById("cardTypeError").innerHTML = "Card type is blank";
+        document.getElementById("cardType").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please select card type");
+        return false;
+    } else {
+        document.getElementById("cardType").classList.remove("class","errorField");
+        isValid = true;
     }
     if (accountNo == null || accountNo.trim().length == 0) {
-        document.getElementById("accountNoError").innerHTML = "Account no. is blank";
+        document.getElementById("accountNo").classList.add("class","errorField");
         isValid = false;
+        window.alert("Account No is blank");
+        return false;
+    } else {
+        document.getElementById("accountNo").classList.remove("class","errorField");
+        isValid = true;
     }
     if (expiryDate == null || expiryDate.trim().length == 0) {
-        document.getElementById("expiryDateError").innerHTML = "Expiry date is blank";
+        document.getElementById("expiryDate").classList.add("class","errorField");
         isValid = false;
+        window.alert("Expiry date is blank");
+        return false;
+    } else {
+        document.getElementById("expiryDate").classList.remove("class","errorField");
+        isValid = true;
     }
     if (transactionDate == null || transactionDate.trim().length == 0) {
-        document.getElementById("transactionDateError").innerHTML = "Transaction date is blank";
+        document.getElementById("transactionDate").classList.add("class","errorField");
         isValid = false;
+        window.alert("Transaction date is blank");
+        return false;
+    } else {
+        document.getElementById("transactionDate").classList.remove("class","errorField");
+        isValid = true;
     }
     if (transactionDetails == null || transactionDetails.trim().length == 0) {
-        document.getElementById("transactionDetailsError").innerHTML = "Transaction details is blank";
+        document.getElementById("transactionDetails").classList.add("class","errorField");
         isValid = false;
+        window.alert("Transaction details is blank");
+        return false;
+    } else {
+        document.getElementById("transactionDetails").classList.remove("class","errorField");
+        isValid = true;
     }
     if (remarks == null || remarks.trim().length == 0) {
-        document.getElementById("remarksError").innerHTML = "Remarks is blank";
+        document.getElementById("remarks").classList.add("class","errorField");
         isValid = false;
+        window.alert("Remarks is blank");
+        return false;
+    } else {
+        document.getElementById("remarks").classList.remove("class","errorField");
+        isValid = true;
     }
     if (fraudLevel == null || fraudLevel.trim().length == 0) {
-        document.getElementById("fraudLevelError").innerHTML = "Fraud level not selected.";
+        document.getElementById("fraudLevel").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please select fraud level");
+        return false;
+    } else {
+        document.getElementById("fraudLevel").classList.remove("class","errorField");
+        isValid = true;
     }
 
     return isValid;

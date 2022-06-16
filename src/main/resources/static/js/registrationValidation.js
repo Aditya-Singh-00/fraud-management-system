@@ -16,56 +16,113 @@ function validate() {
     var contactNoPattern = /^[1-9]{1}[0-9]{9}/;
    
     if (id == null || id.trim().length == 0) {
-        console.log(id);
-        document.getElementById("userIdError").innerHTML = "User Id is blank";
+        document.getElementById("userId").classList.add("class","errorField");
         isValid = false;
+        window.alert("User ID is blank");
+        return false;
+    } else {
+        document.getElementById("userId").classList.remove("class","errorField");
+        isValid = true;
     }
     if (firstName == null || firstName.trim().length == 0) {
-        console.log(firstName);
-        document.getElementById("firstNameError").innerHTML = "First Name is blank";
+        document.getElementById("firstName").classList.add("class","errorField");
         isValid = false;
+        window.alert("First Name is blank");
+        return false;
+    } else {
+        document.getElementById("firstName").classList.remove("class","errorField");
+        isValid = true;
     }
     if (lastName == null || lastName.trim().length == 0) {
-        document.getElementById("lastNameError").innerHTML = "Last Name is blank";
+        document.getElementById("lastName").classList.add("class","errorField");
         isValid = false;
+        window.alert("Last Name is blank");
+        return false;
+    } else {
+        document.getElementById("lastName").classList.remove("class","errorField");
+        isValid = true;
     }
     if (dob == null || dob.trim().length == 0) {
-        document.getElementById("dobError").innerHTML = "Date of birth is blank";
+        document.getElementById("dob").classList.add("class","errorField");
         isValid = false;
+        window.alert("Date of birth is blank");
+        return false;
     } else if (!dobPattern.test(dob)) {
-        document.getElementById("dobError").innerHTML = "Invalid Date";
+        document.getElementById("dob").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please Enter valid Date of birth");
+        return false;
+    } else {
+        document.getElementById("dob").classList.remove("class","errorField");
+        isValid = true;
     }
     if (gender == null || gender.trim().length == 0) {
-        document.getElementById("genderError").innerHTML = "Select your gender";
+        document.getElementById("gender").classList.add("class","errorField");
         isValid = false;
+        window.alert("Gender not selected");
+        return false;
+    } else {
+        document.getElementById("gender").classList.remove("class","errorField");
+        isValid = true;
     }
     if (contactNo == null || contactNo.trim().length == 0) {
-        document.getElementById("contactNoError").innerHTML = "Contact No. is blank";
+        document.getElementById("contactNo").classList.add("class","errorField");
         isValid = false;
+        window.alert("Contact No is blank");
+        return false;
     } else if (!contactNoPattern.test(contactNo)) {
-        document.getElementById("contactNoError").innerHTML = "Invalid Contact No";
+        document.getElementById("contactNo").classList.add("class","errorField");
         isValid = false;
+        window.alert("Contact No is invalid");
+        return false;
+    } else {
+        document.getElementById("contactNo").classList.remove("class","errorField");
+        isValid = true;
     }
     if (email == null || email.trim().length == 0) {
-        document.getElementById("emailError").innerHTML = "Email is blank";
+        document.getElementById("email").classList.add("class","errorField");
         isValid = false;
+        window.alert("Email is blank");
+        return false;
+    } else {
+        document.getElementById("email").classList.remove("class","errorField");
+        isValid = true;
     }
     if (password == null || password.trim().length == 0) {
-        document.getElementById("passwordError").innerHTML = "Password is blank";
+        document.getElementById("password").classList.add("class","errorField");
         isValid = false;
+        window.alert("Password is blank");
+        return false;
+    } else {
+        document.getElementById("password").classList.remove("class","errorField");
+        isValid = true;
     }
     if (firstAnswer == null || firstAnswer.trim().length == 0) {
-        document.getElementById("firstAnswerError").innerHTML = "Required";
+        document.getElementById("firstAnswer").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please enter your favourite color");
+        return false;
+    } else {
+        document.getElementById("firstAnswer").classList.remove("class","errorField");
+        isValid = true;
     }
     if (secondAnswer == null || secondAnswer.trim().length == 0) {
-        document.getElementById("secondAnswerError").innerHTML = "Required";
+        document.getElementById("secondAnswer").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please enter your favourite animal");
+        return false;
+    } else {
+        document.getElementById("secondAnswer").classList.remove("class","errorField");
+        isValid = true;
     }
     if (thirdAnswer == null || thirdAnswer.trim().length == 0) {
-        document.getElementById("thirdAnswerError").innerHTML = "Required";
+        document.getElementById("thirdAnswer").classList.add("class","errorField");
         isValid = false;
+        window.alert("Please enter which company phone do you use");
+        return false;
+    } else {
+        document.getElementById("thirdAnswer").classList.remove("class","errorField");
+        isValid = true;
     }
 
     return isValid; 

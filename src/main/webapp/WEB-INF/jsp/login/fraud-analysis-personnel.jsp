@@ -20,10 +20,10 @@
                 <p class="message"><%=request.getAttribute("message")%></p>
             <%}%>
             <label>User ID</label>
-            <input id="userId" type="text" name="id" placeholder="Enter Your ID" autofocus required />
+            <input id="userId" type="text" name="id" placeholder="Enter Your ID" autofocus />
             <p id="userIdError"></p>
             <label>Password</label>
-            <input id="password" type="password" name="password" placeholder="Enter Password" required />
+            <input id="password" type="password" name="password" placeholder="Enter Password" />
             <p id="passwordError"></p>
             <button class="login-btn" type="submit">Login</button>
             <a href="/fraud-analysis-personnel-forgot-password">Forgot Password?</a>

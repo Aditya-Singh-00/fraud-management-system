@@ -50,8 +50,12 @@ input,select {
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
-    border: 1px solid #ccc;
+   /* border: 1px solid #ccc;*/
     box-sizing: border-box;
+}
+
+.errorField {
+    border: 1px solid red;
 }
 
 select > option {
