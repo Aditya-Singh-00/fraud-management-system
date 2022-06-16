@@ -74,7 +74,6 @@ public class FraudAnalysisPersonnelController {
         model.put("id", fraudAnalysisPersonnel.get().getId());
 
         CurrentUser.id = id;
-
         return "redirect:/fraud-analyzer-dashboard";    
     } 
 

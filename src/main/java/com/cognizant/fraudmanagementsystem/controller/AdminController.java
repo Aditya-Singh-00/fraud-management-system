@@ -212,6 +212,7 @@ public class AdminController {
     @GetMapping(value = "logout")
     public String logout() {
         CurrentUser.id = "";
+        CurrentUser.type = "";
         return "redirect:/";
     }
 
