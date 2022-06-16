@@ -49,7 +49,7 @@ function validate() {
         isValid = false;
     }
     if (fraudLevel == null || fraudLevel.trim().length == 0) {
-        document.getElementById("fraudLevelError").innerHTML = "Fraud level is blank";
+        document.getElementById("fraudLevelError").innerHTML = "Fraud level not selected.";
         isValid = false;
     }
 

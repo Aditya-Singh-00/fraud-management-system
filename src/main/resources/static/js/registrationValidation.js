@@ -12,6 +12,8 @@ function validate() {
     var secondAnswer = document.getElementById("secondAnswer").value;
     var thirdAnswer = document.getElementById("thirdAnswer").value;
     var isValid = true;
+    var dobPattern =/^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})$/;
+    var contactNoPattern = /^[1-9]{1}[0-9]{9}/;
    
     if (id == null || id.trim().length == 0) {
         console.log(id);
@@ -29,13 +31,20 @@ function validate() {
     }
     if (dob == null || dob.trim().length == 0) {
         document.getElementById("dobError").innerHTML = "Date of birth is blank";
-        isValid = false;}
+        isValid = false;
+    } else if (!dobPattern.test(dob)) {
+        document.getElementById("dobError").innerHTML = "Invalid Date";
+        isValid = false;
+    }
     if (gender == null || gender.trim().length == 0) {
         document.getElementById("genderError").innerHTML = "Select your gender";
         isValid = false;
     }
     if (contactNo == null || contactNo.trim().length == 0) {
         document.getElementById("contactNoError").innerHTML = "Contact No. is blank";
+        isValid = false;
+    } else if (!contactNoPattern.test(contactNo)) {
+        document.getElementById("contactNoError").innerHTML = "Invalid Contact No";
         isValid = false;
     }
     if (email == null || email.trim().length == 0) {

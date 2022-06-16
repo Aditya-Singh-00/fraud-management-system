@@ -13,6 +13,9 @@
     <div class="container">
         <h1>Register as Fraud Analysis Personnel</h1>
         <form method="post" onsubmit="return validate()" modelAttribute="user">
+            <% if(request.getAttribute("error") != null) {%>
+                <p class="error"><%=request.getAttribute("error")%></p>
+            <%}%>
             <label>User ID</label>
             <input id="userId" type="text" name="id" placeholder="Enter Your ID" autofocus/>
             <p id="userIdError" class="error"></p>

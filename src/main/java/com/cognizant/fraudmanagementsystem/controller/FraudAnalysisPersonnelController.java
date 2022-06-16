@@ -30,10 +30,11 @@ public class FraudAnalysisPersonnelController {
         FraudAnalysisPersonnel fraudAnalysisPersonnel
     ) {
 		if (fraudAnalysisPersonnelService.addFraudAnalysisPersonnel(fraudAnalysisPersonnel)) {
-            return "redirect:/login/fraud-analysis-personnel";
+            model.put("message", "Registration Completed.");
+            return "login/fraud-analysis-personnel";
         } else {
-            model.put("error", "Something went wrong while adding user. Try again.");
-            return "redirect:/register/fraud-analysis-personnel";
+            model.put("error", "Something went wrong. Try again.");
+            return "register/fraud-analysis-personnel";
         }
 	}
 
@@ -52,7 +53,7 @@ public class FraudAnalysisPersonnelController {
         
 		if(fraudAnalysisPersonnel.isEmpty()) {
             System.out.println("Empty");
-			model.put("error","Invalid FraudAnalysisPersonnel Credentials");
+			model.put("error","Invalid Credentials");
 		    return "login/fraud-analysis-personnel";
 		}
         
@@ -77,11 +78,6 @@ public class FraudAnalysisPersonnelController {
         return "redirect:/fraud-analyzer-dashboard";    
     } 
 
-    @GetMapping(value = "/submitted/fraud-analysis-personnel")
-    public String submitted() {
-        return "common/submitted";
-    }
-
     @GetMapping(value = "/fraud-analyzer-dashboard")
     public String showFraudAnalyzerPage() {
         return "dashboard/fraud-analyzer-dashboard";
@@ -94,6 +90,7 @@ public class FraudAnalysisPersonnelController {
 
     @PostMapping(value = "/fraud-analysis-personnel-forgot-password")
     public String forgotPassword(
+        ModelMap model,
         String id,
         String firstAnswer,
         String secondAnswer,
@@ -108,7 +105,8 @@ public class FraudAnalysisPersonnelController {
             CurrentUser.id = id;
             return "redirect:/reset-fraud-analysis-personnel-password";
         } else {
-            return "redirect:/fraud-analysis-personnel-forgot-password";
+            model.addAttribute("error","Invalid credentials");
+            return "util/fraud-analysis-personnel-forgot-password";
         }
     }
 

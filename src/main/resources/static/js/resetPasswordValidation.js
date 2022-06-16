@@ -14,8 +14,9 @@ function validate() {
     }
 
     if (confirmNewPassword != null && password != null) {
-        if (confirmNewPassword !== password) {
+        if (confirmNewPassword != password) {
             document.getElementById("confirmNewPasswordError").innerHTML = "Password does not match";
+            isValid = false;
         }
     }
 

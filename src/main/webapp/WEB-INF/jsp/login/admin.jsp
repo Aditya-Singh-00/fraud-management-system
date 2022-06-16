@@ -12,7 +12,13 @@
 <body>
     <div class="container">
         <h1>Login as Admin</h1>
-        <form method="post" onsubmit="return validate()">
+        <form method="post" onsubmit="return validate()" action="/login/admin">
+            <% if(request.getAttribute("error") != null) {%>
+                    <p class="error"><%=request.getAttribute("error")%></p>
+            <%}%>
+            <% if(request.getAttribute("message") != null) {%>
+                <p class="message"><%=request.getAttribute("message")%></p>
+            <%}%>
             <label>User ID</label>
             <input id="userId" type="text" name="id" placeholder="Enter Your ID" autofocus/>
             <p id="userIdError"></p>

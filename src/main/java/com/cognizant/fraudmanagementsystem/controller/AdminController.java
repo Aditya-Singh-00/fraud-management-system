@@ -47,18 +47,13 @@ public class AdminController {
         Admin admin
     ) {
 		if (adminService.addAdmin(admin)) {
-            model.put("id", admin.getId());
-            return "redirect:/login/admin";
+            model.addAttribute("message", "Registration Completed.");
+            return "login/admin";
         } else {
-            model.put("error", "Something went wrong while adding user. Try again.");
-            return "redirect:/register/admin";
+            model.put("error", "Something went wrong during registration. Try again.");
+            return "register/admin";
         }
 	}
-
-    @GetMapping(value = "/submitted/admin")
-    public String submitted() {
-        return "common/submitted";
-    }
 
     @GetMapping(value = "/login/admin")
     public String showLoginPage(ModelMap model) {
@@ -74,7 +69,7 @@ public class AdminController {
 		Optional<Admin> admin = adminService.isValid(id,password);
         
 		if(admin.isEmpty()) {
-			model.put("error","Invalid Admin Credentials");
+			model.put("error","Invalid Credentials");
 		    return "login/admin";
 		}
         CurrentUser.type = "Admin";
@@ -108,7 +103,7 @@ public class AdminController {
             return "redirect:/manage-users";
         } else {
             model.put("error", "Something went wrong while adding user. Try again.");
-            return "redirect:/manage-users";
+            return "register/fraud-analysis-personnel";
         }
 	}
 
@@ -179,6 +174,7 @@ public class AdminController {
 
     @PostMapping(value = "/admin-forgot-password")
     public String forgotPassword(
+        ModelMap model,
         String id,
         String firstAnswer,
         String secondAnswer,
@@ -193,7 +189,8 @@ public class AdminController {
             CurrentUser.id = id;
             return "redirect:/reset-admin-password";
         } else {
-            return "redirect:/admin-forgot-password";
+            model.addAttribute("error","Invalid credentials");
+            return "util/admin-forgot-password";
         }
     }
 
